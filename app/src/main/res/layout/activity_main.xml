@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".activities.MainActivity">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/appBarMain"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <FrameLayout
+                    android:id="@+id/flFragment"
+                    android:layout_width="match_parent"
+                    android:layout_above="@id/bottomNavigationView"
+                    android:layout_height="match_parent" />
+                <com.google.android.material.bottomnavigation.BottomNavigationView
+                    android:id="@+id/bottomNavigationView"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_height="wrap_content"
+                    app:labelVisibilityMode="labeled"
+                    android:layout_alignParentBottom="true"
+                    app:menu="@menu/bottom_nav_menu" />
+            </RelativeLayout>
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0dp"
+                android:theme="@style/Theme.ChannelProTestMVC.AppBarOverlay">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="#EEEFEF"
+                    app:popupTheme="@style/Theme.ChannelProTestMVC.PopupOverlay">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:background="@drawable/background_search"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_baseline_search_24_black"
+                            android:layout_alignParentStart="true"
+                            android:padding="6dp"
+                            android:layout_marginStart="6dp"
+                            android:id="@+id/img_icon" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text"
+                            style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="15dp"
+                            android:textColorHint="#000000"
+                            android:textColor="@color/black"
+                            android:hint="Search products"
+                            android:textSize="14sp"
+                            android:layout_toEndOf="@id/img_icon"
+                            android:background="@drawable/background_search"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+
+                    </RelativeLayout>
+                    <!--this is the actual edit text which takes the input-->
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:itemIconTint="@color/black"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/activity_main_drawer" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
